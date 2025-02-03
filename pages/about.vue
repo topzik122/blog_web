@@ -1,9 +1,12 @@
 <template>
     <h1>О нас</h1>
+    <p>path: {{ route.path }}</p>
 </template>
 
+
 <script setup>
-useSeoMeta({
-  title: 'О нас - Наш первый сайт на Nuxt.js',
+const route = useRoute()
+useHead({
+    title: 'О нас | Академия ТОП'
 })
 </script>

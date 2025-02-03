@@ -1,28 +1,26 @@
 <template>
-  <div class="flex flex-col h-full">
-    <AppHeader />
-    <main class="flex-auto">
-      <NuxtPage />
-    </main>
-    <AppFooter />
-  </div>
+  <button @click="toggleTheme('dark')" class="cursor-pointer">Темная тема</button>
+  <button @click="toggleTheme('')" class="cursor-pointer">Светлая тема</button>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script setup>
-useHead({
-  htmlAttrs: {
-    class: 'flex flex-col h-full',
-  },
-  bodyAttrs: {
-    class: 'flex flex-col h-full',
-  },
-})
+const dark = ref('')
 
-useSeoMeta({
-  title: 'Наш первый сайт на Nuxt.js',
-  ogTitle: 'Наш первый сайт на Nuxt.js',
-  description: 'This is my amazing site, let me tell you all about it.',
-  ogDescription: 'This is my amazing site, let me tell you all about it.',
-  ogImage: 'https://example.com/image.png',
+const toggleTheme = (theme) => {
+  dark.value = theme
+  console.log(dark.value);
+  
+}
+
+watch(dark, (newValue) => {
+  useHead({
+    title: 'Академия ТОП',
+    htmlAttrs: {
+      class: newValue
+    }
+  })
 })
 </script>
