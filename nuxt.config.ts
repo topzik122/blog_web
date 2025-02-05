@@ -9,4 +9,8 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  modules: [
+    '@nuxt/content',
+    '@pinia/nuxt',
+  ],
 });

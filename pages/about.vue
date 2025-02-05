@@ -1,8 +1,7 @@
 <template>
-    <h1>О нас</h1>
-    <p>path: {{ route.path }}</p>
+    <h1 class="text-2xl font-medium">О нас</h1>
+    
 </template>
-
 
 <script setup>
 const route = useRoute()

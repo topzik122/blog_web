@@ -1,5 +1,5 @@
 <template>
-    <h1>Контакты</h1>
+    <h1 class="text-2xl font-medium">Контакты</h1>
     <ul>
         <li>Номер: +7 (993) 307-98-29</li>
         <li>Почта: oleg@nastyle.pro</li>

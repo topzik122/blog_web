@@ -1,15 +1,10 @@
 <template>
-  <h1>Главная страница</h1>
-  <p>path: {{ route.path }}</p>
+  <h1 class="text-2xl font-medium">Главная страница</h1>
+
 </template>
 
-
 <script setup>
-const route = useRoute()
 useHead({
-    title: 'Главная | Академия ТОП',
-    bodyAttrs: {
-      class: 'bg-teal-600'
-    }
+  title: 'Главная | Академия ТОП',
 })
 </script>
