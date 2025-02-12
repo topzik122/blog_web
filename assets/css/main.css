@@ -6,3 +6,13 @@
 #markdown pre {
     @apply bg-amber-100 border border-amber-400 rounded-lg p-5 mx-5
 }
+
+.page-enter-active,
+.page-leave-active {
+  @apply transition-all
+}
+
+.page-enter-from,
+.page-leave-to {
+  @apply  blur-lg translate-y-full
+}
