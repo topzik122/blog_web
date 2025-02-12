@@ -13,4 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@pinia/nuxt',
   ],
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
 });
