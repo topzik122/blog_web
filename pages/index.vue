@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-2xl font-medium">Главная страница</h1>
+  <h1 class="my-4 text-2xl text-blue-700 darl:blue-500 font-medium">Главная страница</h1>
 </template>
 
 <script setup>

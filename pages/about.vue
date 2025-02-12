@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-2xl font-medium">О нас</h1>
+    <h1 class="my-4 text-2xl text-blue-700 darl:blue-500 font-medium">О нас</h1>
     
 </template>
 
