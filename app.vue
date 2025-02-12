@@ -7,4 +7,11 @@
 
 <script setup>
 const loader = useIndexStore();
+
+useHead({
+  title: 'Blooog',
+  bodyAttrs: {
+    class: 'bg-white dark:bg-gray-900'
+  },
+})
 </script>

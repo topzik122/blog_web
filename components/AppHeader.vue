@@ -52,6 +52,12 @@
                             :class="{ 'md:text-blue-700': route.path == '/contact' }"
                             @click="menuOpen = false">Контакты</NuxtLink>
                         </li>
+                        <!-- кнопка с темой -->
+                        <li>
+                            <button @click="toggleTheme" class="dark:text-white underline rounded">
+                                {{ isDark ? 'Светлая тема' : 'Темная тема' }}
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -62,4 +68,23 @@
 <script setup>
 const route = useRoute()
 const menuOpen = ref(false)
+const isDark = ref(false)
+
+const toggleTheme = () => {
+    isDark.value = !isDark.value
+    localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', isDark.value)
+}
+
+const initTheme = () => {
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme === 'dark') {
+        isDark.value = true
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+}
+
+onMounted(() => initTheme())
 </script>
