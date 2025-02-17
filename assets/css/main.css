@@ -16,3 +16,19 @@
 .page-leave-to {
   @apply  blur-lg translate-y-full
 }
+
+.markdown h1 {
+  @apply text-4xl font-medium py-1.5
+}
+
+.markdown h2 {
+  @apply text-3xl font-medium py-1.5
+}
+
+.markdown h3 {
+  @apply text-2xl font-medium py-1.5
+}
+
+.markdown p {
+  @apply text-base py-1.5
+}
