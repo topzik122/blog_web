@@ -32,3 +32,11 @@
 .markdown p {
   @apply text-base py-1.5
 }
+
+.markdown ul {
+  @apply list-disc my-1.5 pl-6;
+}
+
+.markdown ol {
+  @apply list-decimal my-1.5 pl-6;
+}

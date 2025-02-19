@@ -3,7 +3,7 @@
     <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <article v-for="post in posts" :key="post.id" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <NuxtLink :to="`/${post.category?.slug}/${post.slug}`">
-                <img class="rounded-t-lg" :src="'http://localhost:1337'+post.cover.url" alt="" />
+                <img class="rounded-t-lg max-h-44 w-full object-cover" :src="'http://localhost:1337'+post.cover.url" alt="" />
             </NuxtLink>
             <div class="p-5">
                 <NuxtLink :to="`/${post.category?.slug}/${post.slug}`">
