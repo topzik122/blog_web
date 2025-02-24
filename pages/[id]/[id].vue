@@ -1,7 +1,15 @@
 <template>
     <div class="max-w-3xl mx-auto text-black dark:text-white">
+        <!-- <div v-if="post.cover" :class="bg-[url('http://localhost:1337'+post.cover.url)]"
+            class="h-81"></div> -->
+            <div v-if="post.cover"
+                :style="'background-image: url(http://localhost:1337' + post.cover.url + ')'"
+                class="h-80 bg-auto bg-top bg-fixed bg-no-repeat rounded-4xl"
+            >
+                
+            </div>
         <h1 class="text-4xl font-medium my-2">{{ post.title }}</h1>
-        <p class="opacity-50 my-1.5">Опубликовано: {{ convertDatetime(post.publishedAt) }}</p>
+        <p v-if="post" class="opacity-50 my-1.5"> <span v-html="post.view || 0"></span> прочитано • {{ convertDatetime(post.publishedAt) }}</p>
         <div class="markdown my-1.5" v-html="body"></div>
     </div>
 </template>
@@ -26,7 +34,7 @@ function convertDatetime(isoDatetime) {
     const minutes = String(date.getUTCMinutes()).padStart(2, '0');
 
     // Форматируем строку
-    return `${day} ${month} ${year} в ${hours}:${minutes}`;
+    return `${day} ${month} ${year}`;
 }
 
 const { id } = useRoute().params;
@@ -35,6 +43,7 @@ const post = ref({})
 const index = useIndexStore();
 
 import markdownit from 'markdown-it'
+import postcssPluginWarning from 'tailwindcss';
 const md = markdownit()
 const body = ref()
 watch(post, (newPost) => {
@@ -47,8 +56,11 @@ const fetch = async () => {
         index.loader = true;
 
         const res = await $fetch(`http://localhost:1337/api/posts?filters[slug][$eqi]=${id}&populate=*`)
-        
-        return post.value = res.data[0]
+        post.value = res.data[0]
+        if (post.value) {
+            updateViews(post.value.documentId)
+        }
+
     } catch (error) {
         console.log(error);
     } finally {
@@ -56,6 +68,18 @@ const fetch = async () => {
         index.loader = false;
     }
 }
+
+const updateViews = async (id) => {
+    await $fetch(`http://localhost:1337/api/posts/${id}`, {
+        method: 'PUT',
+        body: {
+            data: {
+                view: (post.value.view || 0) + 1,
+            },
+        },
+    });
+};
+
 
 onMounted(() => fetch())
 </script>
