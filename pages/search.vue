@@ -34,8 +34,8 @@ const fetch = async () => {
         // включаем loader
         index.loader = true;
 
-        const res = await $fetch('http://localhost:1337/api/posts?populate=*')
-
+        const res = await $fetch(`http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${index.search}&filters[$or][1][body][$containsi]=${index.search}&populate=*`)
+        
         return posts.value = res.data
     } catch (error) {
         console.log(error);
