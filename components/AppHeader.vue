@@ -68,10 +68,13 @@
 <script setup>
 const index = useIndexStore();
 const search = ref('')
+const router = useRouter();
 
 // Наблюдаем за изменениями в состоянии поиска
 watch(() => search.value, (newSearch) => {
-    
+    if (route.path != '/search') {
+        router.push('/search');
+    }
 
     index.search = newSearch
 });

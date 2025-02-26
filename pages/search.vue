@@ -29,21 +29,25 @@
 const index = useIndexStore();
 const posts = ref([])
 
-const fetch = async () => {
+const fetch = async (search) => {
     try {
         // включаем loader
-        index.loader = true;
+        // index.loader = true;
 
-        const res = await $fetch(`http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${index.search}&filters[$or][1][body][$containsi]=${index.search}&populate=*`)
+        const res = await $fetch(`http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${search}&filters[$or][1][body][$containsi]=${search}&populate=*`)
         
         return posts.value = res.data
     } catch (error) {
         console.log(error);
     } finally {
         // выключаем loader
-        index.loader = false;
+        // index.loader = false;
     }
 }
+
+watch( () => index.search, (search) =>{
+    fetch(search)
+});
 
 onMounted(() => fetch())
 </script>
