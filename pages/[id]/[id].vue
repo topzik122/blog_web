@@ -87,7 +87,13 @@ function calculateReadingTime(text, wordsPerMinute = 200) {
     const readingTime = Math.ceil(words / wordsPerMinute);
     
     // Возвращаем строку с указанием времени чтения
-    return `${readingTime} минут${readingTime === 1 ? '' : 'ы'}`;
+    if (readingTime === 1) {
+        return `${readingTime} минута`;
+    } else if (readingTime > 1 && readingTime < 5) {
+        return `${readingTime} минуты`;
+    } else {
+        return `${readingTime} минут`;
+    }
 }
 
 
