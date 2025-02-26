@@ -31,17 +31,11 @@ const posts = ref([])
 
 const fetch = async (search) => {
     try {
-        // включаем loader
-        // index.loader = true;
-
         const res = await $fetch(`http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${search}&filters[$or][1][body][$containsi]=${search}&populate=*`)
         
         return posts.value = res.data
     } catch (error) {
         console.log(error);
-    } finally {
-        // выключаем loader
-        // index.loader = false;
     }
 }
 
