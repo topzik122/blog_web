@@ -3,6 +3,13 @@
 </template>
 
 <script setup>
+const index = useIndexStore();
+// const search = ref('')
+
+// watch(index.search, async (newSearch) => {
+//   search.value = newSearch
+// })
+
 useHead({
   title: 'Главная | Академия ТОП',
 })

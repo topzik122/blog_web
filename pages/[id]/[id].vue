@@ -1,12 +1,9 @@
 <template>
     <div class="max-w-3xl mx-auto text-black dark:text-white">
-        <!-- <div v-if="post.cover" :class="bg-[url('http://localhost:1337'+post.cover.url)]"
-            class="h-81"></div> -->
             <div v-if="post.cover"
                 :style="'background-image: url(http://localhost:1337' + post.cover.url + ')'"
                 class="h-80 bg-auto bg-top bg-fixed bg-no-repeat rounded-4xl"
             >
-                
             </div>
         <h1 class="text-4xl font-medium my-2">{{ post.title }}</h1>
         <p v-if="post" class="opacity-50 my-1.5"> <span v-html="post.view || 0"></span> прочитано • {{ convertDatetime(post.publishedAt) }}</p>
