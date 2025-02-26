@@ -6,7 +6,10 @@
             >
             </div>
         <h1 class="text-4xl font-medium my-2">{{ post.title }}</h1>
-        <p v-if="post" class="opacity-50 my-1.5"> <span v-html="post.view || 0"></span> прочитано • {{ convertDatetime(post.publishedAt) }}</p>
+        <p v-if="post" class="opacity-50 my-1.5">
+            <span>{{ post.body ? calculateReadingTime(post.body) : 0 }}</span> •
+            <span v-html="post.view || 0"></span>
+            прочитано • {{ convertDatetime(post.publishedAt) }}</p>
         <div class="markdown my-1.5" v-html="body"></div>
     </div>
 </template>
@@ -40,7 +43,6 @@ const post = ref({})
 const index = useIndexStore();
 
 import markdownit from 'markdown-it'
-import postcssPluginWarning from 'tailwindcss';
 const md = markdownit()
 const body = ref()
 watch(post, (newPost) => {
@@ -76,6 +78,17 @@ const updateViews = async (id) => {
         },
     });
 };
+
+function calculateReadingTime(text, wordsPerMinute = 200) {
+    // Удаляем лишние пробелы и разбиваем текст на слова
+    const words = text.trim().split(/\s+/).length;
+    
+    // Рассчитываем время чтения в минутах
+    const readingTime = Math.ceil(words / wordsPerMinute);
+    
+    // Возвращаем строку с указанием времени чтения
+    return `${readingTime} минут${readingTime === 1 ? '' : 'ы'}`;
+}
 
 
 onMounted(() => fetch())
