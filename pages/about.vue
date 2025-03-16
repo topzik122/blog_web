@@ -17,16 +17,16 @@
             <h2 class="text-3xl font-semibold mb-4">Наша команда</h2>
             <div class="grid grid-cols-1 text-black md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-200 p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Наталья</h3>
-                    <p>Кулинарный эксперт и автор рецептов. Обожает экспериментировать с новыми ингредиентами.</p>
+                    <h3 class="text-xl font-bold">Эрик</h3>
+                    <p>топ 1 инвокер в пабе он соло тащит все игры 1 в 9 + зачем куас нам нужны ток санстрайки и метеор берёт юлу и делает какойто треш.</p>
                 </div>
                 <div class="bg-gray-200 p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Тарас</h3>
-                    <p>Фотограф и блогер. Запечатлевает каждый момент приготовления и делится им с вами.</p>
+                    <h3 class="text-xl font-bold">void spirit</h3>
+                    <p>очень сильный воин использующий очень много разных скилов для атаки и защиты универсал </p>
                 </div>
                 <div class="bg-gray-200 p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Евгения</h3>
-                    <p>Пищевая стилистка. Создает красивые композиции и помогает сделать каждое блюдо шедевром.</p>
+                    <h3 class="text-xl font-bold">invoker</h3>
+                    <p>Главный по касту скилов,расскажет про каждый скил и их работу </p>
                 </div>
             </div>
         </section>
@@ -36,6 +36,6 @@
 <script setup>
 const route = useRoute()
 useHead({
-    title: 'О нас | Академия ТОП'
+    title: 'О нас | Гимназия №76'
 })
 </script>

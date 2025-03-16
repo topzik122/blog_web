@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-3xl mx-auto text-black dark:text-white">
             <div v-if="post.cover"
-                :style="'background-image: url(http://localhost:1337' + post.cover.url + ')'"
+                :style="'background-image: url(http://localhost:1338' + post.cover.url + ')'"
                 class="h-80 bg-auto bg-top bg-fixed bg-no-repeat rounded-4xl"
             >
             </div>
@@ -54,7 +54,7 @@ const fetch = async () => {
         // включаем loader
         index.loader = true;
 
-        const res = await $fetch(`http://localhost:1337/api/posts?filters[slug][$eqi]=${id}&populate=*`)
+        const res = await $fetch(`http://localhost:1338/api/posts?filters[slug][$eqi]=${id}&populate=*`)
         post.value = res.data[0]
         if (post.value) {
             updateViews(post.value.documentId)
@@ -69,7 +69,7 @@ const fetch = async () => {
 }
 
 const updateViews = async (id) => {
-    await $fetch(`http://localhost:1337/api/posts/${id}`, {
+    await $fetch(`http://localhost:1338/api/posts/${id}`, {
         method: 'PUT',
         body: {
             data: {

@@ -6,7 +6,7 @@
     <div v-if="posts.length > 0" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <article v-for="post in posts" :key="post.id" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <NuxtLink :to="`/${post.category?.slug}/${post.slug}`">
-                <img class="rounded-t-lg max-h-44 w-full object-cover" :src="'http://localhost:1337'+post.cover.url" :alt="post.cover.alternativeText" :title="post.cover.caption" />
+                <img class="rounded-t-lg max-h-44 w-full object-cover" :src="'http://localhost:1338'+post.cover.url" :alt="post.cover.alternativeText" :title="post.cover.caption" />
             </NuxtLink>
             <div class="inline-flex flex-col gap-3.5 p-5">
                 <NuxtLink :to="`/${post.category?.slug}/${post.slug}`">
@@ -34,7 +34,7 @@ const posts = ref([])
 
 const fetch = async (search) => {
     try {
-        const res = await $fetch(`http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${search}&filters[$or][1][body][$containsi]=${search}&populate=*`)
+        const res = await $fetch(`http://localhost:1338/api/posts?filters[$or][0][title][$containsi]=${search}&filters[$or][1][body][$containsi]=${search}&populate=*`)
 
         return posts.value = res.data
     } catch (error) {
