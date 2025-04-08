@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
   collectionName: 'navbars';
   info: {
+    description: '';
     displayName: 'navbar';
     pluralName: 'navbars';
     singularName: 'navbar';
@@ -380,6 +381,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    config: Schema.Attribute.Relation<'oneToOne', 'api::navbar.navbar'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -392,6 +394,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     path: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    sort: Schema.Attribute.Integer;
     to: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

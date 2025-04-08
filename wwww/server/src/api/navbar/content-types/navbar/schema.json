@@ -4,7 +4,8 @@
   "info": {
     "singularName": "navbar",
     "pluralName": "navbars",
-    "displayName": "navbar"
+    "displayName": "navbar",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,14 @@
     },
     "name": {
       "type": "string"
+    },
+    "sort": {
+      "type": "integer"
+    },
+    "config": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navbar.navbar"
     }
   }
 }
