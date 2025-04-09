@@ -18,7 +18,7 @@
             <div class="grid grid-cols-1 text-black md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-200 p-4 rounded-lg shadow">
                     <h3 class="text-xl font-bold">Эрик</h3>
-                    <p>топ 1 инвокер в пабе он соло тащит все игры 1 в 9 + зачем куас нам нужны ток санстрайки и метеор берёт юлу и делает какойто треш.</p>
+                    <p>играет в доту и лучше бы он не заходил.При виде его все убегают</p>
                 </div>
                 <div class="bg-gray-200 p-4 rounded-lg shadow">
                     <h3 class="text-xl font-bold">void spirit</h3>
